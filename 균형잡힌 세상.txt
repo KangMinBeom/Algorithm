@@ -1,0 +1,26 @@
+while True:
+    a = input()
+    lst = []
+
+    if a == '.':
+        break
+
+    for j in a:
+        if j == '[' or j == '(':
+            lst.append(j)
+        elif j == ']':
+            if len(lst) != 0 and lst[-1] == '[':
+                lst.pop()
+            else:
+                lst.append(']')
+                break
+        elif j ==')':
+            if len(lst) != 0 and lst[-1] == '(':
+                lst.pop()
+            else:
+                lst.append(')')
+                break   
+    if not lst:
+        print("yes")
+    else:
+        print("no")
