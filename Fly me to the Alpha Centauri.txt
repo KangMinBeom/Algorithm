@@ -1,0 +1,19 @@
+import sys
+
+T = int(sys.stdin.readline())
+
+for _ in range(T):
+    a,b = map(int,sys.stdin.readline().split())
+
+    d = b - a
+    t = 0
+    cnt = 0
+    mv = 0
+
+    while t < d:
+        cnt += 1
+        if cnt % 2 != 0:
+            mv += 1
+        t += mv
+
+    print(cnt)
