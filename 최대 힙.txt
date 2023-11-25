@@ -1,0 +1,18 @@
+import sys
+from heapq import heappush, heappop
+import heapq
+
+N = int(sys.stdin.readline())
+deq = list()
+
+for i in range(N):
+    x = int(sys.stdin.readline())
+
+    if x == 0:
+        if not deq:
+            print(0)
+        else:
+            print(heappop(deq)[1])
+    
+    else:
+        heappush(deq,(-x,x))
