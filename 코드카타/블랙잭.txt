@@ -1,0 +1,12 @@
+from itertools import combinations
+
+N,M = map(int, input().split())
+
+lst = list(map(int,input().split()))
+temp = 0
+for i in combinations(lst, 3):
+    temp_sum = sum(i)
+
+    if temp < temp_sum <= M:
+        temp = temp_sum
+print(temp)
