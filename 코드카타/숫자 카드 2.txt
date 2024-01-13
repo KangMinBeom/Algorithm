@@ -1,0 +1,40 @@
+//dictionary를 사용
+n = int(input())
+lstn = list(map(int, input().split()))
+
+m = int(input())
+lstm = list(map(int, input().split()))
+
+dic = dict()
+
+lst = list()
+for i in lstn:
+    if i in dic:
+        dic[i] += 1
+    else:
+        dic[i] = 1
+
+for i in lstm:
+    if i in dic:
+        print(dic[i], end=' ')
+    else:
+        print(0, end=' ')
+----------------------------------------------
+//내장 함수 Counter 사용 
+//Counter는 리스트에 있는 값을 key 값으로 갖고 동일한 값의 갯수를 value로 갖는다.
+from collections import Counter
+
+n = int(input())
+lstn = list(map(int, input().split()))
+
+m = int(input())
+lstm = list(map(int, input().split()))
+
+count = Counter(lstn)
+
+for i in lstm:
+    if i in count:
+        print(count[i], end = ' ')
+    else:
+        print(0, end=' ')
+        
