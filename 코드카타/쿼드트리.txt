@@ -1,0 +1,24 @@
+n = int(input())
+
+lst = [list(map(int, input())) for i in range(n)]
+result = []
+
+def quadTree(x,y,N):
+    global result
+    check = lst[x][y]
+    for i in range(x, x+N):
+        for j in range(y, y+N):
+            if check != lst[i][j]:
+                result.append("(")
+                N = N // 2
+                quadTree(x, y, N)
+                quadTree(x, y + N, N)
+                quadTree(x + N, y, N)
+                quadTree(x + N, y + N, N)
+                result.append(")")
+                return
+    result.append(check)
+quadTree(0,0,n)
+print("".join(map(str,result)))
+
+
