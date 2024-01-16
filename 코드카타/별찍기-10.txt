@@ -1,0 +1,23 @@
+import sys
+
+n = int(sys.stdin.readline())
+
+def star(n):
+    if n == 3:
+        return ["***","* *","***"]
+
+    lst = star(n//3)
+
+    stc = []
+
+    for i in lst:
+        stc.append(i * 3)
+
+    for i in lst:
+        stc.append(i + ' '*(n//3) + i)
+
+    for i in lst:
+        stc.append(i * 3)
+    return stc
+
+print('\n'.join(star(n)))
