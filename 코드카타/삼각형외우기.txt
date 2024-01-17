@@ -1,0 +1,24 @@
+i = 3
+
+lst = list(int(input()) for i in range(i))
+
+dic = dict()
+
+result = False
+
+if sum(lst) != 180:
+    print("Error")
+
+for i in lst:
+    if dic.get(i):
+        dic[i] += 1
+    else:
+        dic[i] = 1
+
+if sum(lst) == 180 and len(dic) == 3:
+    print("Scalene")
+elif sum(lst) == 180 and len(dic) == 2:
+    print("Isosceles")
+elif sum(lst) == 180 and len(dic) == 1:
+    print("Equilateral")
+
