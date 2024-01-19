@@ -1,0 +1,14 @@
+n = int(input())
+
+i = 0
+result = 0
+
+while True:
+    if n > i:
+        i = i + 1
+        n -= i
+        result += 1
+
+    else:
+        print(result)
+        break
