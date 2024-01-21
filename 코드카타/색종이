@@ -1,0 +1,27 @@
+
+def dfs(x,y,N):
+    color = lst[x][y]
+
+    for i in range(x,x+N):
+        for j in range(y,y+N):
+            if color != lst[i][j]:
+                dfs(x,y,N//2)
+                dfs(x,y+N//2,N//2)
+                dfs(x+N//2,y,N//2)
+                dfs(x+N//2,y+N//2,N//2)
+                return
+
+    if color == 0:
+      lst_cnt.append(0)
+    else:
+      lst_cnt.append(1)
+
+N = int(input())
+
+lst = [list(map(int, input().split())) for _ in range(N)]
+lst_cnt = []
+dfs(0,0,N)
+
+print(lst_cnt.count(0))
+print(lst_cnt.count(1))
+
