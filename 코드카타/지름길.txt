@@ -1,0 +1,14 @@
+N,D = map(int, input().split())
+
+lst = [list(map(int,input().split())) for i in range(N)]
+
+dis = [i for i in range(D+1)]
+
+for i in range(D+1):
+    dis[i] = min(dis[i], dis[i-1]+1)
+    for start, end, le in lst:
+        if i == start and end <= D:
+            dis[end] = min(dis[end], dis[i]+le)
+
+print(dis[-1])
+
