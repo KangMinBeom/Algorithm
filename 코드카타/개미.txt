@@ -1,0 +1,20 @@
+import sys
+
+n = int(sys.stdin.readline())
+
+
+for _ in range(n):
+    l, a = map(int, input().split())
+    max_ant = []
+    min_ant = []
+
+    for i in range(a):
+        ant = int(sys.stdin.readline())
+
+        min_ant.append(min(ant, l-ant))
+        max_ant.append(max(ant, l-ant))
+
+    print(max(min_ant), max(max_ant))
+
+
+
