@@ -1,0 +1,19 @@
+lst = [list(map(int, input().split())) for _ in range(3)]
+
+result = []
+
+def ccw(lst1,lst2,lst3):
+    return((lst1[0]*lst2[1]+lst2[0]*lst3[1]+lst3[0]*lst1[1]) - (lst2[0]*lst1[1]+lst3[0]*lst2[1]+lst1[0]*lst3[1]) )
+
+
+result =ccw(lst[0],lst[1],lst[2])
+
+if result > 0:
+    print(1)
+elif result == 0:
+    print(0)
+else:
+    print(-1)
+
+
+
