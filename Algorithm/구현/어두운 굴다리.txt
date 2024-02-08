@@ -1,0 +1,27 @@
+import sys
+
+N = int(sys.stdin.readline())
+
+M = int(sys.stdin.readline())
+
+x = list(map(int,sys.stdin.readline().split()))
+
+for i in range(1,N+1):
+    bool = True
+    if x[0] - i > 0:
+        bool = False
+    elif x[M-1] + i < N:
+        bool = False
+    else:
+        for j in range(M-1):
+            if x[j] + i < x[j+1] - i:
+                bool = False
+                break
+    if bool :
+        print(i)
+        break
+
+
+
+
+
