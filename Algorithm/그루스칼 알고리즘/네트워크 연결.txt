@@ -1,0 +1,45 @@
+import sys
+
+N = int(sys.stdin.readline())
+M = int(sys.stdin.readline())
+
+edges = []
+
+parent = {}
+
+rank = {}
+
+result = 0
+
+def find(node):
+    if parent[node] != node:
+        parent[node] = find(parent[node])
+    return parent[node]
+
+def union(node_v, node_u):
+    root1 = find(node_v)
+    root2 = find(node_u)
+
+    if rank[root1] > rank[root2]:
+        parent[root2] = root1
+    else:
+        parent[root1] = root2
+        if rank[root1] == rank[root2]:
+            rank[root2] += 1
+
+for i in range(1, N+1):
+    rank[i] = 0
+    parent[i] = i
+
+for i in range(M):
+    a,b,c = map(int, sys.stdin.readline().split())
+    edges.append((c,a,b))
+edges.sort()
+
+for edge in edges:
+    weight, node_v, node_u = edge
+    if find(node_v) != find(node_u):
+        union(node_v, node_u)
+        result += weight
+
+print(result)
