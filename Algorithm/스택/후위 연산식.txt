@@ -1,0 +1,28 @@
+import sys
+
+s = sys.stdin.readline()
+
+lst = []
+result = ""
+for i in s:
+    if i.isalpha():
+        result += i
+    else:
+        if i == '(':
+            lst.append(i)
+        elif i == '*' or i == '/':
+            while lst and (lst[-1] == '*' or lst[-1] == '/'):
+                result += lst.pop()
+            lst.append(i)
+        elif i == '+' or i == '-':
+            while lst and lst[-1] != '(':
+                result += lst.pop()
+            lst.append(i)
+        elif i == ')':
+            while lst and lst[-1] != '(':
+                result += lst.pop()
+            lst.pop()
+
+while lst:
+    result += lst.pop()
+print(result)
